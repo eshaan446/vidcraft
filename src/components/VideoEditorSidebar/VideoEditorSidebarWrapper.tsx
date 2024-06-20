@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Drawer,
   List,
   ListItem,
@@ -21,6 +22,9 @@ const VideoEditorSidebarWrapper: React.FC = () => {
 
   const handleDrawerTransitionEnd = () => {
     setIsSidebarClosing(false);
+  };
+  const handleButtonClick = (url: string) => {
+    window.open(url, "_blank");
   };
 
   return (
@@ -69,7 +73,7 @@ const VideoEditorSidebarWrapper: React.FC = () => {
             textShadow: "2px 2px 4px rgba(0,0,0,0.2)",
           }}
         >
-          Vid<span style={{ color: "#e28743" }}>Craft</span>
+          VidCraft
         </Typography>
 
         <Box sx={{ textAlign: "center", padding: "16px" }}>
@@ -146,22 +150,59 @@ const VideoEditorSidebarWrapper: React.FC = () => {
         </Typography>
         <List sx={{ maxWidth: 400, margin: "auto", marginTop: 2 }}>
           <ListItem>
-            <ListItemText
-              primary="FindYourStay"
-              secondary="A simple scalable MERN website for users to add their properties on the website and streamline their rental journey."
-            />
+            <Box sx={{ display: "flex", alignItems: "center", width: "100%" }}>
+              <ListItemText
+                primary="FindYourStay"
+                secondary="A simple scalable MERN website for users to add their properties on the website and streamline their rental journey."
+              />
+              <Button
+                variant="contained"
+                color="primary"
+                sx={{ marginLeft: 2 }}
+                onClick={() =>
+                  handleButtonClick("https://findyourstay.vercel.app/")
+                }
+              >
+                Visit
+              </Button>
+              <br></br>
+            </Box>
           </ListItem>
           <ListItem>
-            <ListItemText
-              primary="HashBlog"
-              secondary="An elegant blogging platform similar to Medium.com that leverages SSR from Next.js 13."
-            />
+            <Box sx={{ display: "flex", alignItems: "center", width: "100%" }}>
+              <ListItemText
+                primary="HashBlog"
+                secondary="An elegant blogging platform similar to Medium.com that leverages SSR from Next.js 13."
+              />
+              <Button
+                variant="contained"
+                color="primary"
+                sx={{ marginLeft: 2 }}
+                onClick={() =>
+                  handleButtonClick("https://hashblogcommunity.vercel.app")
+                }
+              >
+                Visit
+              </Button>
+            </Box>
           </ListItem>
           <ListItem>
-            <ListItemText
-              primary="FoodieBay"
-              secondary="A Next.js website that guides you to cook international cuisines all around the world."
-            />
+            <Box sx={{ display: "flex", alignItems: "center", width: "100%" }}>
+              <ListItemText
+                primary="FoodieBay"
+                secondary="A Next.js website that guides you to cook international cuisines all around the world."
+              />
+              <Button
+                variant="contained"
+                color="primary"
+                sx={{ marginLeft: 2 }}
+                onClick={() =>
+                  handleButtonClick("https://foodiebay.vercel.app")
+                }
+              >
+                Visit
+              </Button>
+            </Box>
           </ListItem>
         </List>
       </Drawer>

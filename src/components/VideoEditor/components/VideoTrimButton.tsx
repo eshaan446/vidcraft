@@ -6,7 +6,6 @@ import { CropFree } from "@mui/icons-material";
 import useEditVideoFile from "../../../backend/useEditVideoAPI";
 import { useAppContext } from "../../../hooks/useAppContext";
 import useGetVideoInfo from "../../../hooks/useGetVideoInfo";
-import removeAndShiftSubtitles from "../../../utils/removeAndShiftSubtitles";
 
 const VideoTrimButton: React.FC<ButtonProps> = ({ ...buttonProps }) => {
   const {
@@ -32,14 +31,6 @@ const VideoTrimButton: React.FC<ButtonProps> = ({ ...buttonProps }) => {
 
     if (!resultBlobUrl || !videoRef) {
       return;
-    }
-
-    if (subtitles?.length) {
-      const newSubtitles = removeAndShiftSubtitles(subtitles, [
-        [0, timelineStartTime],
-        [timelineEndTime, duration],
-      ]);
-      setSubtitles(newSubtitles);
     }
 
     videoRef.src = resultBlobUrl;
